@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 XPE Games - El Reino de los Juegos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/icons/crown-icon.svg" type="image/svg+xml">
+</head>
+<body>
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Header Principal -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <div class="golden-crown">
+                    <svg width="80" height="80" viewBox="0 0 100 100" class="crown-svg">
+                        <defs>
+                            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#FFA500;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#FF8C00;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#FFB347;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge> 
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Corona dorada con brillo -->
+                        <path d="M10,30 L20,20 L30,30 L40,15 L50,25 L60,15 L70,30 L80,20 L90,30 L90,70 L10,70 Z" 
+                              fill="url(#goldGradient)" stroke="#FFD700" stroke-width="2" filter="url(#glow)"/>
+                        <!-- Joyas brillantes -->
+                        <circle cx="25" cy="45" r="3" fill="#FF1493" filter="url(#glow)"/>
+                        <circle cx="50" cy="40" r="3" fill="#00CED1" filter="url(#glow)"/>
+                        <circle cx="75" cy="45" r="3" fill="#FF69B4" filter="url(#glow)"/>
+                    </svg>
+                </div>
+                <h1 class="main-title">
+                    <span class="title-glow">XPE</span>
+                    <span class="title-crown">👑</span>
+                    <span class="title-games">GAMES</span>
+                </h1>
+            </div>
+            <p class="subtitle">El Reino Donde los Juegos Viven</p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-title">Bienvenido al Reino</h2>
+            <p class="hero-description">Descubre una colección épica de juegos increíbles. Desde clásicos atemporales hasta nuevas aventuras, todo te espera aquí.</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Juegos Disponibles</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Diversión Garantizada</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Diversión Infinita</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Juegos Destacados -->
+    <section class="featured-games">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon">👑</span>
+                Juegos Destacados
+                <span class="title-icon">👑</span>
+            </h2>
+            
+            <div class="games-grid" id="gamesGrid">
+                <!-- Los juegos se cargarán dinámicamente aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Juego Completo -->
+    <div class="game-fullscreen-modal" id="gameModal">
+        <div class="game-modal-header">
+            <h2 id="gameTitle"></h2>
+            <button class="close-game-btn" id="closeGameBtn">✕</button>
+        </div>
+        <div class="game-modal-body">
+            <iframe id="gameIframe" class="game-iframe"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal de Carga -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-crown">
+                <svg width="60" height="60" viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="loadingGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M10,30 L20,20 L30,30 L40,15 L50,25 L60,15 L70,30 L80,20 L90,30 L90,70 L10,70 Z" 
+                          fill="url(#loadingGold)" stroke="#FFD700" stroke-width="2"/>
+                </svg>
+            </div>
+            <h3>Cargando tu aventura...</h3>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Juego Próximamente -->
+    <div class="coming-soon-modal" id="comingSoonModal">
+        <div class="coming-soon-content">
+            <div class="coming-crown">
+                <svg width="80" height="80" viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="comingGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M10,30 L20,20 L30,30 L40,15 L50,25 L60,15 L70,30 L80,20 L90,30 L90,70 L10,70 Z" 
+                          fill="url(#comingGold)" stroke="#FFD700" stroke-width="2"/>
+                </svg>
+            </div>
+            <h2>Próximamente</h2>
+            <p>¡Este juego épico está en desarrollo!</p>
+            <p class="coming-details">Mantente atento para ser el primero en jugarlo.</p>
+            <button class="coming-close-btn" id="comingCloseBtn">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="footer-crown">👑</span>
+                    <span>XPE Games</span>
+                </div>
+                <p class="footer-text">El lugar donde la diversión nunca termina</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Sobre Nosotros</a>
+                    <a href="#" class="footer-link">Contacto</a>
+                    <a href="#" class="footer-link">Términos</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 XPE Games. Todos los derechos reservados. 👑</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

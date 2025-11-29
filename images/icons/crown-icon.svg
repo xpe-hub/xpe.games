@@ -1,0 +1,34 @@
+<svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="crownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#FFA500;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#FF8C00;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#FFB347;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+        </linearGradient>
+        <filter id="crownGlow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Corona principal -->
+    <path d="M10,30 L20,20 L30,30 L40,15 L50,25 L60,15 L70,30 L80,20 L90,30 L90,70 L10,70 Z" 
+          fill="url(#crownGradient)" stroke="#FFD700" stroke-width="2" filter="url(#crownGlow)"/>
+    
+    <!-- Base de la corona -->
+    <rect x="10" y="70" width="80" height="8" fill="url(#crownGradient)" rx="4"/>
+    
+    <!-- Joyas brillantes -->
+    <circle cx="25" cy="45" r="3" fill="#FF1493" filter="url(#crownGlow)"/>
+    <circle cx="50" cy="40" r="3" fill="#00CED1" filter="url(#crownGlow)"/>
+    <circle cx="75" cy="45" r="3" fill="#FF69B4" filter="url(#crownGlow)"/>
+    
+    <!-- Brillos adicionales -->
+    <circle cx="15" cy="25" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+    <circle cx="85" cy="25" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+</svg>
