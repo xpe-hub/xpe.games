@@ -3,40 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test - XPE Games</title>
+    <title>🎮 XPE Games - El Reino de los Juegos</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background: linear-gradient(135deg, #0F0F23, #1a1a3a);
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0F0F23 0%, #1a1a3a 50%, #0F0F23 100%);
             color: white;
             min-height: 100vh;
-            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
         }
-        .crown { font-size: 4rem; margin-bottom: 20px; }
-        h1 { color: #FFD700; margin-bottom: 20px; }
-        .status { 
-            background: rgba(76, 175, 80, 0.2); 
-            padding: 20px; 
-            border-radius: 10px; 
-            margin: 20px auto; 
-            max-width: 500px;
+
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .crown {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #B8BCC8;
+            margin-bottom: 40px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 10px;
+            min-width: 120px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            color: #B8BCC8;
+            font-size: 0.9rem;
+        }
+
+        .game-section {
+            margin-top: 40px;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .game-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .game-desc {
+            color: #B8BCC8;
+            margin-bottom: 20px;
+        }
+
+        .play-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 15px;
+            color: #0F0F23;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .status {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 10px;
             border: 1px solid rgba(76, 175, 80, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="crown">👑</div>
-    <h1>XPE GAMES</h1>
-    <h2>Página de Prueba</h2>
-    <div class="status">
-        <h3>✅ GitHub Pages Funcionando</h3>
-        <p>Este es un sitio de prueba básico para verificar que GitHub Pages está funcionando correctamente.</p>
-        <p>Si ves esto, el sitio está cargado exitosamente.</p>
+    <div class="container">
+        <div class="crown">👑</div>
+        <h1>XPE GAMES</h1>
+        <p class="subtitle">El Reino Donde los Juegos Viven</p>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">1</div>
+                <div class="stat-label">Juegos</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Diversión</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Entretenimiento</div>
+            </div>
+        </div>
+
+        <div class="game-section">
+            <h2 style="margin-bottom: 30px; color: #FFD700;">🎮 Juegos Disponibles</h2>
+            
+            <div class="game-card" onclick="playTicTacToe()">
+                <div class="game-icon">🎮</div>
+                <div class="game-title">Tic Tac Toe</div>
+                <div class="game-desc">El clásico juego de tres en raya con IA inteligente</div>
+                <button class="play-btn">JUGAR AHORA</button>
+            </div>
+        </div>
+
+        <div class="status">
+            <h3>✅ Sitio Web Funcionando</h3>
+            <p>La interfaz premium está cargada correctamente</p>
+            <p>GitHub Pages: Activo y funcionando</p>
+        </div>
     </div>
+
     <script>
-        console.log('✅ Test page loaded successfully');
+        console.log('🎮 XPE Games - Sitio funcionando correctamente');
+        
+        function playTicTacToe() {
+            window.open('games/tateti/index.html', '_blank');
+        }
+
+        // Animación de entrada
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+            document.body.style.transition = 'opacity 1s ease';
+            document.body.style.opacity = '1';
+        }, 100);
     </script>
 </body>
 </html>
